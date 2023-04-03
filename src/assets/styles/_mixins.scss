@@ -1,0 +1,28 @@
+@mixin respond($breakpoint) {
+    @if $breakpoint == phone {
+        @media (max-width: 550px) {
+            @content;
+        }
+    }
+
+    @if $breakpoint == tab-land {
+        @media (max-width: 990px) and (min-width: 551px) {
+            @content;
+        }
+    }
+
+    @if $breakpoint == desktop {
+        @media (min-width: 991px) {
+            @content;
+        }
+    }
+}
+
+@mixin text_vertical_overflow($number_line) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: $number_line;
+    line-clamp: $number_line;
+    -webkit-box-orient: vertical;
+}
