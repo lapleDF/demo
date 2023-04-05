@@ -12,7 +12,7 @@ const Course = () => {
   }
 
   return (
-    <>
+    <div className='app'>
       <div className='courses'>
         {courses?.courseList.length !== 0 ? (<button className='btn__delete-all' onClick={handleDeleteAll} >Delete all</button>) : null}
         {
@@ -22,7 +22,7 @@ const Course = () => {
         }
         <AddNewCourse />
       </div>
-    </>
+    </div>
   )
 }
 
