@@ -1,12 +1,14 @@
-.courses{
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  width: 100%;
-  flex-direction: row;
-  gap: 20px;
-  flex-wrap: wrap;
+.courses {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    flex-direction: row;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding-top: 40px;
 }
+
 .course-item {
     width: 32%;
     height: 200px;
@@ -14,39 +16,83 @@
     position: relative;
     border-radius: 20px;
     overflow: hidden;
-    &:hover &--image{
-      transform: scale(1.2);
+
+    &:hover &--image {
+        transform: scale(1.3);
     }
-    &:hover &--btn{
-      display: block;
+
+    &:hover &--btn {
+        display: block;
     }
-    &--image{
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform .3s ease-in;
-    }&--title{
-      position: absolute;
-      top: 15px;
-      left: 15px;
-      font-weight: bold;
-      color: coral;
-      font-size: 40px;
-      z-index: 10;
-      text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+
+    &--image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform .3s ease-in;
     }
-    &--btn{
-      position: absolute;
-      bottom: 15px;
-      right: 15px;
-      padding-inline: 20px;
-      padding-block: 5px;
-      background-color: red;
-      border: none;
-      border-radius: 5px;
-      color: white;
-      cursor: pointer;
-      display: none;
-      transition: display .3s ease-in;
+
+    &--title {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        font-weight: bold;
+        color: coral;
+        font-size: 40px;
+        z-index: 10;
+        text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    }
+
+    &--btn {
+        position: absolute;
+        bottom: 15px;
+        right: 15px;
+        padding-inline: 20px;
+        padding-block: 5px;
+        background-color: red;
+        border: none;
+        border-radius: 5px;
+        color: white;
+        cursor: pointer;
+        display: none;
+        transition: display .3s ease-in;
+    }
+}
+
+.form-add {
+    width: 32%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    padding-inline: 20px;
+    justify-content: space-between;
+
+    &--label {
+        width: 100%;
+        display: flex;
+        gap: 20px;
+        font-size: 30px;
+    }
+
+    &--input {
+        width: 70%;
+        padding-left: 10px;
+        font-size: 20px;
+        padding-block: 5px;
+    }
+
+    &--submit {
+        font-size: 20px;
+        padding-inline: 20px;
+        padding-block: 5px;
+        background-color: #72a9d9;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
     }
 }

@@ -1,15 +1,13 @@
 import React from 'react'
-import { useAppDispatch } from '../app/store';
-import { initalCourseItem, removeCourse } from '../features/courses/courseSlice';
-import { CourseItemStateType } from '../features/courses/courseSlice';
+import store from '../store/store';
+import { CourseItemType } from '../Type/CourseItem';
 
 interface Props {
-  data: CourseItemStateType
+  data: CourseItemType
 }
 const CourseItem: React.FC<Props> = ({ data }) => {
-  const dispatch = useAppDispatch();
   const handleDelete = () => {
-    dispatch(removeCourse(data.id))
+    store.dispatch({ type: 'REMOVE_COURSE', payload: data.id })
   }
   return (
     <div className='course-item'>

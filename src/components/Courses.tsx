@@ -1,21 +1,28 @@
 import React from 'react'
-import { useSelector } from 'react-redux';
-import { rootState } from '../app/store';
 import { AddNewCourse } from './AddNewCourse';
 import CourseItem from './CourseItem'
+import store, { RootState } from '../store/store';
+import { CourseListType } from '../Type/CourseListType';
+import { useSelector } from 'react-redux';
 
 const Course = () => {
-  const courses = useSelector((state: rootState) => state)
-  console.log('CCC', courses);
+  const courses: CourseListType = useSelector((state: RootState) => state.courses);
+  const handleDeleteAll = () => {
+    store.dispatch({ type: 'SET_COURSE', payload: [] })
+  }
+
   return (
-    <div className='courses'>
-      {
-        courses.map((item) => {
-          return <CourseItem data={item} key={item.id} />
-        })
-      }
-      <AddNewCourse />
-    </div>
+    <>
+      <div className='courses'>
+        {courses?.courseList.length !== 0 ? (<button className='btn__delete-all' onClick={handleDeleteAll} >Delete all</button>) : null}
+        {
+          courses?.courseList.map((item) => {
+            return <CourseItem data={item} key={item.id} />
+          })
+        }
+        <AddNewCourse />
+      </div>
+    </>
   )
 }
 
