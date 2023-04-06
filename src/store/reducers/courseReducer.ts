@@ -1,3 +1,4 @@
+import { courseActionType } from "./../../constants/courseAction.constant";
 import { CourseListType, initialStateCourse } from "../../Type/CourseListType";
 import { PayloadAction } from "../../Type/PayloadAction";
 
@@ -6,19 +7,26 @@ export const courses = (
   action: PayloadAction
 ) => {
   switch (action.type) {
-    case "SET_COURSE":
+    case courseActionType.SET_COURSE:
       return {
         ...state,
         courseList: action.payload,
       };
-    case "REMOVE_COURSE":
+    case courseActionType.REMOVE_COURSE:
       return {
         ...state,
         courseList: state.courseList.filter(
           (item) => item.id !== action.payload
         ),
       };
-    case "ADD_NEW_COURSE":
+    case courseActionType.ADD_NEW_COURSE:
+      if (
+        state.courseList.filter((item) => item.title === action.payload?.title)
+          .length > 0
+      ) {
+        alert('Course existed!')
+        return state;
+      }
       return {
         ...state,
         courseList: [...state.courseList, action.payload],
