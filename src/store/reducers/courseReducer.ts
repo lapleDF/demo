@@ -2,7 +2,7 @@ import { courseActionType } from "./../../constants/courseAction.constant";
 import { CourseListType, initialStateCourse } from "../../Type/CourseListType";
 import { PayloadAction } from "../../Type/PayloadAction";
 
-export const courses = (
+export const courseReducer = (
   state: CourseListType = initialStateCourse,
   action: PayloadAction
 ) => {

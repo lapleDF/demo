@@ -1,6 +1,6 @@
 import React, { ChangeEvent, FormEvent, useEffect, useRef, useState } from 'react'
 import uuid from 'react-uuid'
-import store from '../store/store'
+import store, { action } from '../store/store'
 import { CourseItemType, initalCourseItem } from '../Type/CourseItem';
 
 export const AddNewCourse = () => {
@@ -13,7 +13,7 @@ export const AddNewCourse = () => {
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     setFormValues({ ...formValues, 'id': uuid() })
-    store.dispatch({ type: 'ADD_NEW_COURSE', payload: formValues })
+    action({ type: 'ADD_NEW_COURSE', payload: formValues })
     e.preventDefault()
   }
 
