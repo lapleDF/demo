@@ -6,6 +6,7 @@ export interface PostListType {
   prevPage: number;
   nexPage: number;
   totalPage: number;
+  callingStatus: "isLoading" | "isError" | "isSuccess" | "idle";
 }
 
 export const initalPostListType: PostListType = {
@@ -14,4 +15,5 @@ export const initalPostListType: PostListType = {
   prevPage: 0,
   nexPage: 0,
   totalPage: 1,
+  callingStatus: "idle",
 };

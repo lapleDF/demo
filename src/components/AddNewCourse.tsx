@@ -1,6 +1,6 @@
 import React, { ChangeEvent, FormEvent, useEffect, useRef, useState } from 'react'
 import uuid from 'react-uuid'
-import store, { action } from '../store/store'
+import { action } from '../store/store'
 import { CourseItemType, initalCourseItem } from '../Type/CourseItem';
 
 export const AddNewCourse = () => {
